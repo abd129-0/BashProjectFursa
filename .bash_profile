@@ -6,11 +6,11 @@ echo "Hello $USER"
 # Define environment variable COURSE_ID
 export COURSE_ID="DevOpsFursa"
 
-# Check permissions of the .token file
-if [ -e ~/.token ]; then # Retrieve the permissions of the .token file
+# Check permissions of .token file
+if [ -e ~/.token ]; then
     token_perms=$(stat -c "%a" ~/.token)
-    if [ "$token_perms" != "600" ]; then # If permissions are not set to 600 (read and write by the user only), display a warning
-        echo "Warning: .token file has permissions that are too open"
+    if [ "$token_perms" != "600" ]; then
+        echo "Warning: .token file has too open permissions"
     fi
 fi
 
