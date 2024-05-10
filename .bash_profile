@@ -15,7 +15,7 @@ if [ -e ~/.token ]; then
 fi
 
 # Change umask
-umask 0077
+umask 0007
 
 # Add usercommands directory to PATH
 export PATH="$PATH:/home/$USER/usercommands"
