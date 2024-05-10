@@ -8,8 +8,8 @@ export COURSE_ID="DevOpsFursa"
 
 # Check permissions of .token file
 if [ -e ~/.token ]; then
-    token_perms=$(stat -c "%a" ~/.token)
-    if [ "$token_perms" != "600" ]; then
+    token_perms=$(stat -c "%a" ~/.token) # Retrieve the permissions of the .token file
+    if [ "$token_perms" != "600" ]; then # If permissions are not set to 600 (read and write by the user only), display a warning
         echo "Warning: .token file has too open permissions"
     fi
 fi
