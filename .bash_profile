@@ -7,11 +7,9 @@ echo "Hello $USER"
 export COURSE_ID="DevOpsFursa"
 
 # Check permissions of the .token file
-if [ -e ~/.token ]; then
-    # Retrieve the permissions of the .token file
+if [ -e ~/.token ]; then # Retrieve the permissions of the .token file
     token_perms=$(stat -c "%a" ~/.token)
-    # If permissions are not set to 600 (read and write by the user only), display a warning
-    if [ "$token_perms" != "600" ]; then
+    if [ "$token_perms" != "600" ]; then # If permissions are not set to 600 (read and write by the user only), display a warning
         echo "Warning: .token file has permissions that are too open"
     fi
 fi
@@ -29,7 +27,6 @@ date -u +"%Y-%m-%dT%H:%M:%S%:z"
 alias ltxt='ls *.txt'
 
 # Create or clean ~/tmp directory
-
 if [ -d ~/tmp ]; then
     rm -rf ~/tmp/*
 else # if ~/tmp does not exists
@@ -39,7 +36,5 @@ fi
 # Kill process bound to port 8080 if it exists
 # Check if any process is listening on port 8080 using lsof
 if lsof -Pi :8080 -sTCP:LISTEN -t >/dev/null; then
-    # If a process is found, kill it using its PID
-    kill $(lsof -t -i:8080)
+    kill $(lsof -t -i:8080) # If a process is found, kill it using its PID
 fi
-
