@@ -34,7 +34,4 @@ else # if ~/tmp does not exists
 fi
 
 # Kill process bound to port 8080 if it exists
-# Check if any process is listening on port 8080 using lsof
-if lsof -Pi :8080 -sTCP:LISTEN -t >/dev/null; then
-    kill $(lsof -t -i:8080) # If a process is found, kill it using its PID
-fi
+fuser -k 8088/tcp
